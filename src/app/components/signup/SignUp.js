@@ -39,7 +39,7 @@ const SignUp = () => {
           <h1 className="text-center text-2xl font-bold capitalize">Sign up</h1>
           <input
             className="block py-3 px-3 outline-none rounded-md"
-            type="email"
+            type=""
             name="email"
             placeholder="Enter your email"
           />
