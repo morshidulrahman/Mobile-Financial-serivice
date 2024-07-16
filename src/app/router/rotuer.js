@@ -3,6 +3,8 @@ import SignUp from "../components/signup/SignUp";
 import Login from "../components/login/Login";
 import DashboardLayout from "../layout/DashboardLayout";
 import SendMoney from "../components/dashboard/user/SendMoney";
+import CashInRequest from "../components/dashboard/user/CashInRequest";
+import CashOut from "../components/dashboard/user/CashOut";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "send-money",
         element: <SendMoney />,
+      },
+      {
+        path: "casinRequest",
+        element: <CashInRequest />,
+      },
+      {
+        path: "cashout",
+        element: <CashOut />,
       },
     ],
   },

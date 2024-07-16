@@ -12,8 +12,13 @@ const UserMenu = () => {
       />
       <MenuItems
         icon={MdAnnouncement}
-        label="Announcement"
-        address="announcement"
+        label="CashInRequest"
+        address="casinRequest"
+      />
+      <MenuItems
+        icon={MdAnnouncement}
+        label="CashOutRequest"
+        address="cashout"
       />
     </div>
   );
