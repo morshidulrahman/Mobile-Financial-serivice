@@ -3,7 +3,14 @@ import React from "react";
 import toast from "react-hot-toast";
 
 const AgentTable = ({ requestLists, refetch }) => {
-  const { status, transactionType, amount, mynumber, _id } = requestLists;
+  const { status, transactionType, amount, mynumber, _id, agentnumber } =
+    requestLists;
+
+  console.log(transactionType);
+
+  // if (transactionType === "cashin") {
+  //   return console.log("cashout done");
+  // }
 
   const transactionlist = async () => {
     const userInfo = {
@@ -17,12 +24,37 @@ const AgentTable = ({ requestLists, refetch }) => {
       "http://localhost:5000/transictionlist",
       userInfo
     );
-    console.log(data);
     return data;
   };
 
   const acceptTransactions = async () => {
-    transactionlist();
+    try {
+      if (transactionType == "cashin") {
+        const { data } = await axios.put(
+          `http://localhost:5000/transactionlist/${mynumber}`,
+          { amount, agentnumber, transactionType }
+        );
+
+        if (data.modifiedCount > 0) {
+          toast.success("cashin Successfully");
+          refetch();
+          transactionlist();
+        }
+      } else {
+        const { data } = await axios.put(
+          `http://localhost:5000/transactioncashout/${mynumber}`,
+          { amount, agentnumber, transactionType }
+        );
+
+        if (data.modifiedCount > 0) {
+          toast.success("cashout Successfully");
+          refetch();
+          transactionlist();
+        }
+      }
+    } catch (e) {
+      toast.error(e.message);
+    }
   };
 
   return (
