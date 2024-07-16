@@ -5,6 +5,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import SendMoney from "../components/dashboard/user/SendMoney";
 import CashInRequest from "../components/dashboard/user/CashInRequest";
 import CashOut from "../components/dashboard/user/CashOut";
+import AgentManagement from "../components/dashboard/agent/AgentManagement";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "cashout",
         element: <CashOut />,
+      },
+      {
+        path: "tranmanagements",
+        element: <AgentManagement />,
       },
     ],
   },

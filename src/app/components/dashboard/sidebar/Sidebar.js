@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AiOutlineBars } from "react-icons/ai";
 import AdminMenu from "../menu/AdminMenu";
 import UserMenu from "../menu/UserMenu";
+import AgentMenu from "../menu/AgentMenu";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
@@ -55,6 +56,7 @@ const Sidebar = () => {
           <div className="flex flex-col justify-between flex-1 mt-2">
             <nav>
               <UserMenu />
+              <AgentMenu />
             </nav>
           </div>
         </div>
